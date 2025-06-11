@@ -44,26 +44,191 @@
        
     <a href="https://www.tinkercad.com/things/eRO2lqm2FEt-conteo-binario?sharecode=q6uSRUwG_VcZhyornwAZakFkegMwDah8cjualdqh6vc">
     <h2 >Conteo binario</h2></a>
+ <p><strong>Componentes:</strong> 8 LEDs<br>
+      <strong>Tutorial paso a paso:</strong><br>
+      1. Abre el enlace en Tinkercad.<br>
+      2. Coloca 8 LEDs conectados a las salidas digitales (2 al 9).<br>
+      3. Conecta resistencias de 220Ω a cada LED.<br>
+      4. Escribe el siguiente código en el editor de Arduino:<br>
+      <pre><code>
+void setup() {
+  for (int i = 2; i &lt;= 9; i++) {
+    pinMode(i, OUTPUT);
+  }
+}
 
+void loop() {
+  for (int i = 0; i &lt; 256; i++) {
+    for (int j = 0; j &lt; 8; j++) {
+      digitalWrite(2 + j, bitRead(i, j));
+    }
+    delay(500);
+  }
+}
+      </code></pre>
+      5. Sube el código y presiona "Iniciar simulación".
+    </p>
     <a href="https://www.tinkercad.com/things/cTkevbxMXcU-conteo-binario-con-botones?sharecode=n1yMOcaH3nsp_knlrMrmhN75mmErFKUDGUQxRpQVTTY">
         <h2>Conteo binario con botones</h2>
     </a>
+
+     <p><strong>Componentes:</strong> 8 LEDs y 2 botones<br>
+      <strong>Tutorial paso a paso:</strong><br>
+      1. Coloca 8 LEDs conectados a los pines 2 al 9.<br>
+      2. Añade 2 botones: uno en pin 10 (suma) y otro en pin 11 (resta), con resistencias pull-down.<br>
+      3. Escribe el siguiente código en el editor:<br>
+      <pre><code>
+int contador = 0;
+
+void setup() {
+  for (int i = 2; i &lt;= 9; i++) {
+    pinMode(i, OUTPUT);
+  }
+  pinMode(10, INPUT);
+  pinMode(11, INPUT);
+}
+
+void loop() {
+  if (digitalRead(10) == HIGH) {
+    contador++;
+    if (contador &gt; 255) contador = 0;
+    delay(300);
+  }
+  if (digitalRead(11) == HIGH) {
+    contador--;
+    if (contador &lt; 0) contador = 255;
+    delay(300);
+  }
+
+  for (int i = 0; i &lt; 8; i++) {
+    digitalWrite(2 + i, bitRead(contador, i));
+  }
+}
+      </code></pre>
+    </p>
     
     <a href="https://www.tinkercad.com/things/5u2bkx0RnJX-encender-led-con-boton">
         <h2>Contador con botones</h2>
     </a>
 
+
+     <p><strong>Componentes:</strong> 8 botones<br>
+      <strong>Tutorial paso a paso:</strong><br>
+      1. Coloca 8 botones conectados a los pines 2 al 9 (uno por bit).<br>
+      2. Añade un LED por cada botón, conectado a pines 10 al 17.<br>
+      3. Usa resistencias pull-down en cada botón.<br>
+      4. Escribe el siguiente código:<br>
+      <pre><code>
+void setup() {
+  for (int i = 2; i &lt;= 9; i++) {
+    pinMode(i, INPUT);
+  }
+  for (int i = 10; i &lt;= 17; i++) {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop() {
+  for (int i = 0; i &lt; 8; i++) {
+    int estado = digitalRead(2 + i);
+    digitalWrite(10 + i, estado);
+  }
+}
+      </code></pre>
+    </p>
+
+
     <a href="https://www.tinkercad.com/things/1zd5xSgbjpa-encender-y-apagar-un-led-utilizando-un-boton-pulsador-?sharecode=_chHPhB6rc9_V1PQR8oRG7tCgKYhqOJBtM2afvYM1CE">
         <h2>Encender LED con boton</h2>
     </a>
+
+
+        <p><strong>Componentes:</strong> 1 LED y 1 botón<br>
+      <strong>Tutorial paso a paso:</strong><br>
+      1. Conecta un LED al pin 13 y el botón al pin 2 con resistencia pull-down.<br>
+      2. Usa este código para encender el LED cuando se presione el botón:<br>
+      <pre><code>
+void setup() {
+  pinMode(13, OUTPUT);
+  pinMode(2, INPUT);
+}
+
+void loop() {
+  if (digitalRead(2) == HIGH) {
+    digitalWrite(13, HIGH);
+  } else {
+    digitalWrite(13, LOW);
+  }
+}
+      </code></pre>
+    </p>
+
+
 
         <a href="https://www.tinkercad.com/things/49Z2DV2va0y-semaforo-con-boton-pulsador?sharecode=rOA1fSJ5KuXpOHON-wpsBbUM4sUnLtnpiBSkcsid808">
         <h2>Semaforo con boton</h2>
     </a>
 
+ <p><strong>Componentes:</strong> 3 LEDs y 1 botón<br>
+      <strong>Tutorial paso a paso:</strong><br>
+      1. LEDs conectados a pines 8 (rojo), 9 (amarillo) y 10 (verde).<br>
+      2. Botón conectado al pin 2.<br>
+      3. Código para cambiar estados al presionar el botón:<br>
+      <pre><code>
+void setup() {
+  for (int i = 8; i &lt;= 10; i++) pinMode(i, OUTPUT);
+  pinMode(2, INPUT);
+}
+
+void loop() {
+  if (digitalRead(2) == HIGH) {
+    digitalWrite(10, HIGH); delay(2000);
+    digitalWrite(10, LOW);
+    digitalWrite(9, HIGH); delay(1000);
+    digitalWrite(9, LOW);
+    digitalWrite(8, HIGH); delay(2000);
+    digitalWrite(8, LOW);
+  }
+}
+      </code></pre>
+    </p>
+
+
         <a href="https://www.tinkercad.com/things/23uWmGGN4ai-semaforo-vehicular-y-peatonal?sharecode=v7kDDVn8VVSSokZp0SMfD3RstMdDWYSTdv08w9O3Dik">
         <h2>Semaforo Peatonal con boton</h2>
     </a>
+
+
+<p><strong>Componentes:</strong> 5 LEDs y 1 botón<br>
+      <strong>Tutorial paso a paso:</strong><br>
+      1. LEDs vehículos: 8 (rojo), 9 (amarillo), 10 (verde).<br>
+      2. LEDs peatón: 11 (verde), 12 (rojo). Botón en pin 2.<br>
+      3. Código de control semáforo peatonal:<br>
+      <pre><code>
+void setup() {
+  for (int i = 8; i &lt;= 12; i++) pinMode(i, OUTPUT);
+  pinMode(2, INPUT);
+}
+
+void loop() {
+  digitalWrite(10, HIGH); // Verde vehículo
+  digitalWrite(12, HIGH); // Rojo peatón
+
+  if (digitalRead(2) == HIGH) {
+    digitalWrite(10, LOW);
+    digitalWrite(9, HIGH); delay(1000);
+    digitalWrite(9, LOW);
+    digitalWrite(8, HIGH); delay(1000);
+
+    digitalWrite(12, LOW);
+    digitalWrite(11, HIGH); delay(3000);
+    digitalWrite(11, LOW);
+    digitalWrite(8, LOW);
+  }
+}
+      </code></pre>
+    </p>
+
       </section>
     </main>
 
