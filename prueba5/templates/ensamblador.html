@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicxus</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 class="header-title">Ensamblador</h1>
+ 
+    </header>
+       <!-- Icono Home -->
+       <a href="inicio.html" class="home-icon"><i class="fas fa-home"></i></a>
+
+    <div class="dropdown mb-6">
+        <button class="dropbtn">ensamblador ↓</button>
+        <div class="dropdown-content">
+            <a href="index.html">Microprocesadores</a>
+            <a href="ensamblador.html">familia ix86</a>
+            <a href="procesador.html">PROCESADORES</a>
+            <a href="microcontroladores.html">Microcontroladores</a>
+            <a href="pic.html">PIC</a>
+            <a href="fundamentos_ensamblador.html">Fundamentos Ensamblador</a>
+            <a href="puerto_ES.html">Puertos de Entrada/Salida Paralela</a>
+            <a href="modulos_cyc.html">Modulos Comparacion y Captura</a>
+            <a href="puerto_ES_serie.html">Puertos de Entrada/Salida Serie</a>
+                <a href="thinkercad.html">Ejercicios en ThinkerCad</a>
+
+        </div>
+    </div>
+
+
+    <div class="flex-container">
+ 
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+           
+
+            <div class="card-container">
+                <!-- Card -->
+                <div class="card">
+                    <h3 class="card-title">Modos de direccionamiento</h3>
+                    <ul class="card-list">
+                        <li><strong>Inmediato:</strong> Se utiliza un valor constante.</li>
+                        <li><strong>Directo:</strong> Se especifica una dirección de memoria.</li>
+                        <li><strong>Indirecto:</strong> La dirección está en un registro.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Control de flujo</h3>
+                    <ul class="card-list">
+                        <li><strong>jmp:</strong> Salto directo.</li>
+                        <li><strong>je, jne, jg, jl:</strong> Saltos condicionales.</li>
+                        <li><strong>loop, for:</strong> Para repeticiones.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Lenguaje ensamblador ix86</h3>
+                    <p>Es un lenguaje de bajo nivel para procesadores Intel de arquitectura x86. Permite manipular directamente el hardware.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Declaración de segmentos</h3>
+                    <ul class="card-list">
+                        <li><strong>.data:</strong> Segmento de datos inicializados.</li>
+                        <li><strong>.text:</strong> Segmento de código ejecutable.</li>
+                        <li><strong>.bss:</strong> Segmento para variables no inicializadas.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Formato de una instrucción</h3>
+                    <ul class="card-list">
+                        <li><strong>Etiqueta (opcional):</strong> Identificador de la instrucción.</li>
+                        <li><strong>Instrucción:</strong> Comando que indica la operación a realizar.</li>
+                        <li><strong>Operando(s):</strong> Datos sobre los que opera la instrucción.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Palabras reservadas</h3>
+                    <ul class="card-list">
+                        <li><strong>mov:</strong> Mueve datos de un lugar a otro.</li>
+                        <li><strong>jmp:</strong> Salta a otra instrucción.</li>
+                        <li><strong>int:</strong> Ejecuta una interrupción.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+      
+    </div>
+
+    <footer class="footer">
+        <p>💧 No desperdicies el agua. El agua es vida. 🌱</p>
+    </footer>
+
+   
+</body>
+
+</html>

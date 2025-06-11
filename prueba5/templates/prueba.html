@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arquitectura de los Microcontroladores</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #002B5B;
+      color: #FFFFFF;
+    }
+
+    header {
+      background-color: #0077B6;
+      padding: 1em;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #00B4D8;
+      font-size: 1.8em;
+    }
+
+    .home-icon {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      color: #FFFFFF;
+      font-size: 1.5em;
+      text-decoration: none;
+    }
+
+    nav {
+      float: left;
+      width: 220px;
+      background-color: #003566;
+      height: 100vh;
+      padding: 1em;
+      box-sizing: border-box;
+    }
+
+    nav h3 {
+      color: #90E0EF;
+      margin-top: 0;
+    }
+
+    nav a {
+      display: block;
+      color: #ADE8F4;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    main {
+      margin-left: 240px;
+      padding: 2em;
+    }
+
+    h2, h3 {
+      color: #00B4D8;
+    }
+
+    ul {
+      margin-left: 1.5em;
+    }
+
+    footer {
+      clear: both;
+      background-color: #003566;
+      text-align: center;
+      padding: 1em;
+      color: #ADE8F4;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1em 0;
+      border: 2px solid #00B4D8;
+      border-radius: 8px;
+    }
+
+    .dropdown {
+      margin-bottom: 1em;
+    }
+
+    .dropbtn {
+      background-color: #0077B6;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .dropdown-content {
+      display: none;
+      background-color: #003566;
+      padding: 0.5em;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: #90E0EF;
+      text-decoration: none;
+      display: block;
+      padding: 5px 0;
+    }
+
+    .dropdown-content a:hover {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="inicio.html" class="home-icon"><i class="fas fa-home"></i></a>
+
+  <header>
+    <h1>Arquitectura de los Microcontroladores</h1>
+  </header>
+
+  <nav>
+    <h3>Contenido</h3>
+    <div class="dropdown">
+      <button class="dropbtn">Microcontroladores ↓</button>
+      <div class="dropdown-content">
+        <a href="index.html">Microprocesadores</a>
+        <a href="ensamblador.html">ENSAMBLADOR</a>
+        <a href="procesador.html">TIPOS DE PROCESADORES</a>
+        <a href="microcontroladores.html">Microcontroladores</a>
+        <a href="pic.html">PIC</a>
+        <a href="fundamentos_ensamblador.html">Fundamentos Ensamblador</a>
+      </div>
+    </div>
+    <a href="#arquitectura">1. Arquitectura</a>
+    <a href="#tipos">2. Tipos</a>
+    <a href="#embebidos">3. Embebidos</a>
+    <a href="#externa">4. Memoria externa</a>
+    <a href="#tecnica">5. Técnica</a>
+    <a href="#cisc-risc">6. CISC vs RISC</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2 id="arquitectura">1. Arquitectura de los Microcontroladores</h2>
+      <p>
+        Es la organización interna y diseño de los componentes de un microcontrolador, que es un sistema en chip (SoC) que integra CPU, memoria (RAM, ROM, EEPROM o Flash), periféricos de E/S, temporizadores, ADC y buses de comunicación (UART, SPI, I2C, etc.). 
+        Existen dos arquitecturas comunes:
+      </p>
+      <img src="../images/image.png" alt="Arquitectura de microcontroladores">
+      <ul>
+        <li><strong>Harvard:</strong> Memoria separada para instrucciones y datos (más rápida).</li>
+        <li><strong>Von Neumann:</strong> Memoria compartida para instrucciones y datos (más sencilla).</li>
+      </ul>
+
+      <h2 id="tipos">2. Diferentes Tipos de Microcontroladores</h2>
+      <p>Se clasifican por su capacidad de procesamiento y aplicación:</p>
+      <ul>
+        <li><strong>8 bits:</strong> Básicos y económicos (Ej. PIC16F84, ATmega328).</li>
+        <li><strong>16 bits:</strong> Mayor velocidad (Ej. MSP430).</li>
+        <li><strong>32 bits:</strong> Alta potencia (Ej. ARM Cortex-M).</li>
+      </ul>
+      <p>También se agrupan por familia:</p>
+      <ul>
+        <li>PIC (Microchip)</li>
+        <li>AVR (Atmel/Microchip)</li>
+        <li>ARM Cortex (ST, NXP, etc.)</li>
+        <li>8051 (Intel y otros)</li>
+      </ul>
+
+      <h2 id="embebidos">3. Microcontroladores Embebidos</h2>
+      <p>
+        Están integrados en dispositivos electrónicos para realizar tareas específicas. Ejemplos incluyen:
+      </p>
+      <ul>
+        <li>Microondas</li>
+        <li>Impresoras</li>
+        <li>Automóviles</li>
+      </ul>
+
+      <h2 id="externa">4. Microcontrolador con Memoria Externa</h2>
+      <p>
+        Algunos microcontroladores requieren memoria externa cuando se necesitan más datos o instrucciones, como en sistemas con pantallas gráficas o procesamiento de imágenes. Se conectan mediante interfaces externas a RAM, ROM, EEPROM o Flash.
+      </p>
+
+      <h2 id="tecnica">5. Arquitectura de Microcontroladores (Enfoque Técnico)</h2>
+      <p>
+        La arquitectura técnica define la interacción entre bloques internos:
+      </p>
+      <ul>
+        <li>CPU para procesamiento</li>
+        <li>Buses de datos, direcciones y control</li>
+        <li>Memorias (ROM, RAM, EEPROM)</li>
+        <li>Periféricos (ADC, timers, PWM, UART, SPI)</li>
+        <li>Puertos de E/S digitales y analógicos</li>
+      </ul>
+      <p>Optimizada para tareas específicas y bajo consumo de energía.</p>
+
+      <h2 id="cisc-risc">6. CISC vs RISC</h2>
+      <h3>CISC (Complex Instruction Set Computing)</h3>
+      <ul>
+        <li>Instrucciones complejas y extensas</li>
+        <li>Menos líneas de código</li>
+        <li>Ejemplo: Intel x86</li>
+        <li>Menor velocidad de ejecución</li>
+      </ul>
+
+      <h3>RISC (Reduced Instruction Set Computing)</h3>
+      <ul>
+        <li>Instrucciones simples y rápidas</li>
+        <li>Más líneas de código, pero mejor rendimiento</li>
+        <li>Ejemplo: ARM Cortex-M</li>
+        <li>Mejor para sistemas embebidos</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>💧 No desperdicies el agua. El agua es vida. 🌱</p>
+  </footer>
+
+</body>
+</html>

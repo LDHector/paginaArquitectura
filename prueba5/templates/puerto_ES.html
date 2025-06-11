@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Actividad 11 - Arquitectura de Máquinas Computadoras I</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="body">
+  <!-- Header -->
+  <header class="navbar">
+    <h1 class="header-title">Puertos de Entrada Salida Paralela</h1>
+  </header>
+
+  <!-- Icono Home -->
+  <a href="inicio.html" class="home-icon"><i class="fas fa-home"></i></a>
+
+  <!-- Dropdown for unit selection -->
+  <div class="dropdown mb-6">
+    <button class="dropbtn">Microcontroladores ↓</button>
+    <div class="dropdown-content">
+      <a href="index.html">Microprocesadores</a>
+      <a href="ensamblador.html">ENSAMBLADOR</a>
+      <a href="procesador.html">TIPOS DE PROCESADORES</a>
+      <a href="microcontroladores.html">Microcontroladores</a>
+      <a href="pic.html">PIC</a>
+      <a href="fundamentos_ensamblador.html">Fundamentos Ensamblador</a>
+        <a href="puerto_ES.html">Puertos de Entrada/Salida Paralela</a>
+        <a href="modulos_cyc.html">Modulos Comparacion y Captura</a>
+        <a href="puerto_ES_serie.html">Puertos de Entrada/Salida Serie</a>
+                <a href="thinkercad.html">Ejercicios en ThinkerCad</a>
+
+    </div>
+  </div>
+
+  <!-- Layout general -->
+  <div class="main-layout">
+    <!-- Contenido principal -->
+    <main class="content-box">
+      <section class="content">
+
+        
+        <p>Puertos paralelos A, B, C, D, E, F y G. Conexión de periféricos comunes.</p>
+        <img src="../images/ES_1.png" alt="" style="width: 750px; height: 460px;"/>
+        
+        <h2>El sistema de temporizadores</h2>
+        <p>Estudio del Timer 0, configuración del registro OPTION_REG, y más.</p>
+        <img src="../images/ES_2.png" alt="" style="width: 750px; height: 460px;"/>
+
+        <h2>Código de Temporizadores</h2>
+        <pre>
+#include <xc.h>
+#define _XTAL_FREQ 4000000 // 4 MHz
+// CONFIG BITS
+#pragma config FOSC = XT, WDTE = OFF, PWRTE = ON, BOREN = ON
+#pragma config LVP = OFF, CPD = OFF, WRT = OFF, CP = OFF
+// Variables globales
+unsigned int contador_ms = 0;
+// Interrupción para Timer0
+// [Código completo aquí]
+        </pre>
+
+        <h2>Diferencias entre Puertos de E/S Paralelo y Serie</h2>
+        <h3>Puerto de E/S Paralelo</h3>
+<ul>
+  <li><strong>Puerto de E/S Paralelo:</strong> Envía varios bits (normalmente 8 o más) al mismo tiempo, cada uno por una línea separada.</li>
+  <li>Velocidad: Más rápido para distancias cortas porque transmite múltiples bits simultáneamente.</li>
+  <li>Cableado: Más complejo y grueso, debido al mayor número de líneas necesarias.</li>
+  <li>Ejemplo de uso:
+    <ul>
+      <li>Impresoras antiguas con puerto paralelo (tipo Centronics o LPT).</li>
+      <li>Comunicación entre componentes dentro de un computador, como el bus de datos.</li>
+    </ul>
+  </li>
+  <li>Cuándo usarlo: Cuando necesitas transmitir grandes cantidades de datos rápidamente y las distancias entre dispositivos son cortas (por ejemplo, dentro de una computadora o a una impresora local).</li>
+</ul>
+
+<ul>
+  <li><strong>Puerto de E/S Serie:</strong> Envía los bits uno tras otro a través de una sola línea de datos.</li>
+  <li>Velocidad: Más lento para cortas distancias que el paralelo, pero más fiable en largas distancias.</li>
+  <li>Cableado: Más simple y delgado, porque usa menos líneas.</li>
+  <li>Ejemplo de uso:
+    <ul>
+      <li>Comunicación por puerto RS-232, USB, UART, o comunicación entre microcontroladores.</li>
+      <li>Dispositivos como ratones antiguos, módems, sensores, y tarjetas Arduino.</li>
+    </ul>
+  </li>
+  <li>Cuándo usarlo: Ideal cuando necesitas comunicación a larga distancia, o cuando solo se requiere una conexión simple y confiable (por ejemplo, para sensores en sistemas embebidos o comunicación con un microcontrolador).</li>
+</ul>
+        <img src="../images/ES_comparativo.png" alt="" style="width: 750px; "/>
+
+        <p>Transmisión rápida de múltiples bits simultáneamente.</p>
+        <h3>Puerto de E/S Serie</h3>
+        <p>Envío de bits uno a uno, ideal para largas distancias.</p>
+
+        <h2>Diagrama de un Puerto Paralelo</h2>
+        <img src="../images/8bits.gif" alt="" style="width: 750px; height: 460px;"/>
+
+<h2>Funciones de las Líneas del Puerto Paralelo (Estándar)</h2>
+
+<ul>
+  <li><strong>STROBE (Pin de Control - Salida del Host):</strong> Señal que el host (PC) envía para indicar que los datos en las líneas DATA0-DATA7 están listos para ser leídos.
+    <ul>
+      <li>Cómo funciona: El host coloca los datos en las líneas de datos, luego pone la señal STROBE en bajo (0) por unos microsegundos para que el dispositivo lea los datos.</li>
+      <li>Dirección: Salida del host hacia el periférico.</li>
+    </ul>
+  </li>
+
+  <li><strong>ACK (Pin de Estado - Entrada al Host):</strong> Señal que el periférico (como una impresora) usa para confirmar que recibió correctamente los datos.
+    <ul>
+      <li>Cómo funciona: Después de recibir y procesar los datos, el dispositivo pone esta línea brevemente en bajo (0) para informar que está listo para el siguiente byte.</li>
+      <li>Dirección: Entrada al host (el host la lee).</li>
+    </ul>
+  </li>
+
+  <li><strong>BUSY (Pin de Estado - Entrada al Host):</strong> Indica que el periférico está ocupado y no puede recibir más datos por el momento.
+    <ul>
+      <li>Cómo funciona: Si está en alto (1), el dispositivo está ocupado. Si está en bajo (0), está listo para recibir datos.</li>
+      <li>Dirección: Entrada al host.</li>
+    </ul>
+  </li>
+
+  <li><strong>DATA0 – DATA7 (Líneas de Datos - Salida del Host):</strong> Transmiten los 8 bits de datos desde el host hacia el periférico.
+    <ul>
+      <li>Cómo funciona: El host coloca un byte (8 bits) en estas líneas y luego activa STROBE para indicar que los datos están listos.</li>
+      <li>Dirección: Salida del host hacia el periférico.</li>
+    </ul>
+  </li>
+</ul>
+
+
+        
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>💧 No desperdicies el agua. El agua es vida. 🌱</p>
+    </footer>
+  </div>
+</body>
+</html>

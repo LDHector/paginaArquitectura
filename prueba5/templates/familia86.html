@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicxus</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="body">
+  <!-- Header -->
+  <header class="navbar">
+    <h1 class="header-title">Familia ix86</h1>
+  </header>
+     <!-- Icono Home -->
+     <a href="inicio.html" class="home-icon"><i class="fas fa-home"></i></a>
+
+      <!-- Dropdown for unit selection -->
+      <div class="dropdown mb-6">
+        <button class="dropbtn">familiaix86 ↓</button>
+        <div class="dropdown-content">
+            <a href="index.html">Microprocesadores</a>
+            <a href="ensamblador.html">ENSAMBLADOR</a>
+            <a href="procesador.html">TIPOS DE PROCESADORES</a>
+            <a href="microcontroladores.html">Microcontroladores</a>
+            <a href="pic.html">PIC</a>
+            <a href="fundamentos_ensamblador.html">Fundamentos Ensamblador</a>
+            <a href="puerto_ES.html">Puertos de Entrada/Salida Paralela</a>
+            <a href="modulos_cyc.html">Modulos Comparacion y Captura</a>
+            <a href="puerto_ES_serie.html">Puertos de Entrada/Salida Serie</a>
+                <a href="thinkercad.html">Ejercicios en ThinkerCad</a>
+
+        </div>
+    </div>
+
+  <!-- Layout general -->
+  <div class="main-layout">
+
+    <!-- Contenido principal -->
+    <main class="content-box">
+      <section class="content">
+        <h1 class="section-title">Temas del Lenguaje Ensamblador (ix86)</h1>
+
+        <h2>Constantes</h2>
+        <p>
+          Son valores fijos en el código ensamblador que no cambian durante la ejecución del programa. Se pueden definir usando directivas como <strong>EQU</strong> o <strong>DEFINE</strong>.
+        </p>
+
+        <h2>Operadores</h2>
+        <p>
+          Los operadores en ensamblador permiten realizar operaciones matemáticas y lógicas sobre los datos. Ejemplos incluyen <strong>+</strong>, <strong>-</strong>, <strong>*</strong>, <strong>/</strong>, y operadores lógicos como <strong>AND</strong>, <strong>OR</strong>, <strong>XOR</strong>.
+        </p>
+
+        <h2>Tipos de datos</h2>
+        <p>
+          El ensamblador ix86 maneja diferentes tipos de datos, como enteros de distintos tamaños (<strong>BYTE</strong>, <strong>WORD</strong>, <strong>DWORD</strong>). También se pueden definir caracteres o cadenas usando <strong>.DB</strong> o <strong>.DW</strong>.
+        </p>
+
+        <h2>Conjunto de instrucciones</h2>
+        <p>Incluye todas las operaciones que la CPU puede ejecutar, agrupadas en:</p>
+        <ul>
+          <li><strong>Aritméticas:</strong> ADD, SUB, MUL, DIV</li>
+          <li><strong>Lógicas:</strong> AND, OR, XOR, NOT</li>
+          <li><strong>Transferencia de datos:</strong> MOV, PUSH, POP</li>
+          <li><strong>Control de flujo:</strong> JMP, CALL, RET, LOOP</li>
+        </ul>
+
+        <h2>Control de dispositivos de entrada / salida</h2>
+        <p>
+          Se realiza mediante instrucciones como <strong>IN</strong> y <strong>OUT</strong> para puertos de E/S. También se utilizan interrupciones como <strong>INT 21h</strong> para interactuar con el sistema.
+        </p>
+
+        <h2>Interrupciones</h2>
+        <p>Permiten la interacción con el sistema operativo y el hardware:</p>
+        <ul>
+          <li><strong>INT 21h:</strong> Servicios de DOS</li>
+          <li><strong>INT 10h:</strong> Manejo de pantalla</li>
+          <li><strong>INT 16h:</strong> Entrada de teclado</li>
+        </ul>
+
+        <h2>Uso de procedimientos</h2>
+        <p>
+          Los procedimientos ayudan a modularizar el código. Se definen con <strong>PROC</strong>, terminan con <strong>RET</strong> y se invocan con <strong>CALL</strong>. Pueden recibir parámetros mediante registros o la pila.
+        </p>
+      </section>
+    </main>
+
+ 
+
+  <!-- Footer -->
+  <footer>
+    <p>💧 No desperdicies el agua. El agua es vida. 🌱</p>
+  </footer>
+
+
+</body>
+</html>

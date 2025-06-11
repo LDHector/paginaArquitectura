@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicxus</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="body">
+  <!-- Header -->
+  <header class="navbar">
+    <h1 class="header-title">Arquitectura de los Microcontroladores</h1>
+  </header>
+     <!-- Icono Home -->
+     <a href="inicio.html" class="home-icon"><i class="fas fa-home"></i></a>
+
+      <!-- Dropdown for unit selection -->
+      <div class="dropdown mb-6">
+        <button class="dropbtn">Microcontroladores ↓</button>
+        <div class="dropdown-content">
+            <a href="index.html">Microprocesadores</a>
+            <a href="ensamblador.html">ENSAMBLADOR</a>
+            <a href="procesador.html">TIPOS DE PROCESADORES</a>
+            <a href="microcontroladores.html">Microcontroladores</a>
+            <a href="pic.html">PIC</a>
+            <a href="fundamentos_ensamblador.html">Fundamentos Ensamblador</a>
+            <a href="puerto_ES.html">Puertos de Entrada/Salida Paralela</a>
+            <a href="modulos_cyc.html">Modulos Comparacion y Captura</a>
+            <a href="puerto_ES_serie.html">Puertos de Entrada/Salida Serie</a>
+                <a href="thinkercad.html">Ejercicios en ThinkerCad</a>
+
+        </div>
+    </div>
+
+  <!-- Layout general -->
+  <div class="main-layout">
+
+    <!-- Contenido principal -->
+    <main class="content-box">
+      <section class="content">
+        <h1 class="section-title">Arquitectura y Tipos de Microcontroladores</h1>
+
+        <h2>1. Arquitectura de los Microcontroladores</h2>
+        <p>
+          Es la organización interna y diseño de los componentes de un microcontrolador, que es un sistema en chip (SoC) que integra CPU, memoria (RAM, ROM, EEPROM o Flash), periféricos de E/S, temporizadores, ADC y buses de comunicación (UART, SPI, I2C, etc.). 
+          Existen dos arquitecturas comunes:
+        </p>
+        <img src="../images/image.png" alt="">
+        <ul>
+          <li><strong>Harvard:</strong> Memoria separada para instrucciones y datos (más rápida).</li>
+          <li><strong>Von Neumann:</strong> Memoria compartida para instrucciones y datos (más sencilla).</li>
+        </ul>
+
+        <h2>2. Diferentes Tipos de Microcontroladores</h2>
+        <p>Se clasifican por su capacidad de procesamiento y aplicación:</p>
+        <ul>
+          <li><strong>8 bits:</strong> Básicos y económicos (Ej. PIC16F84, ATmega328).</li>
+          <li><strong>16 bits:</strong> Mayor velocidad (Ej. MSP430).</li>
+          <li><strong>32 bits:</strong> Alta potencia (Ej. ARM Cortex-M).</li>
+        </ul>
+        <p>También se agrupan por familia:</p>
+        <ul>
+          <li>PIC (Microchip)</li>
+          <li>AVR (Atmel/Microchip)</li>
+          <li>ARM Cortex (ST, NXP, etc.)</li>
+          <li>8051 (Intel y otros)</li>
+        </ul>
+
+        <h2>3. Microcontroladores Embebidos</h2>
+        <p>
+          Están integrados en dispositivos electrónicos para realizar tareas específicas. Ejemplos incluyen:
+        </p>
+        <ul>
+          <li>Microondas</li>
+          <li>Impresoras</li>
+          <li>Automóviles</li>
+        </ul>
+
+        <h2>4. Microcontrolador con Memoria Externa</h2>
+        <p>
+          Algunos microcontroladores requieren memoria externa cuando se necesitan más datos o instrucciones, como en sistemas con pantallas gráficas o procesamiento de imágenes. Se conectan mediante interfaces externas a RAM, ROM, EEPROM o Flash.
+        </p>
+
+        <h2>5. Arquitectura de Microcontroladores (Enfoque Técnico)</h2>
+        <p>
+          La arquitectura técnica define la interacción entre bloques internos:
+        </p>
+        <ul>
+          <li>CPU para procesamiento</li>
+          <li>Buses de datos, direcciones y control</li>
+          <li>Memorias (ROM, RAM, EEPROM)</li>
+          <li>Periféricos (ADC, timers, PWM, UART, SPI)</li>
+          <li>Puertos de E/S digitales y analógicos</li>
+        </ul>
+        <p>Optimizada para tareas específicas y bajo consumo de energía.</p>
+
+        <h2>6. CISC vs RISC</h2>
+        <h3>CISC (Complex Instruction Set Computing)</h3>
+        <ul>
+          <li>Instrucciones complejas y extensas</li>
+          <li>Menos líneas de código</li>
+          <li>Ejemplo: Intel x86</li>
+          <li>Menor velocidad de ejecución</li>
+        </ul>
+
+        <h3>RISC (Reduced Instruction Set Computing)</h3>
+        <ul>
+          <li>Instrucciones simples y rápidas</li>
+          <li>Más líneas de código, pero mejor rendimiento</li>
+          <li>Ejemplo: ARM Cortex-M</li>
+          <li>Mejor para sistemas embebidos</li>
+        </ul>
+
+        <img src="../images/memoria_microcontrolador.png" alt=""  style="width: 609px; height: 460px;">
+
+        <h2>Memoria en los Microcontroladores</h2>
+        <ul>
+          <li><strong>Almacenamiento de programa:</strong> Lugar donde reside el código que ejecuta el microcontrolador.</li>
+          <li><strong>Área de variables:</strong> Espacio para datos temporales usados en la ejecución.</li>
+          <li><strong>Registros especiales:</strong> Controlan funciones internas como interrupciones, timers, etc.</li>
+        </ul>
+
+        <h2>Características de los Microcontroladores</h2>
+        <ul>
+          <li><strong>ALU y registro W:</strong> Procesan operaciones lógicas y aritméticas.</li>
+          <li><strong>Ciclos de máquina y pipeline:</strong> Definen la eficiencia y velocidad de ejecución.</li>
+          <li><strong>Osciladores:</strong> Proveen el reloj interno para sincronización.</li>
+          <li><strong>Fuentes de Reset:</strong> Inicializan el sistema ante fallas o encendido.</li>
+          <li><strong>Perro guardián (Watchdog):</strong> Reinicia el sistema si se detectan bloqueos.</li>
+          <li><strong>Fabricantes:</strong> Microchip, Atmel, ST, NXP, entre otros.</li>
+        </ul>
+
+        <h2>Tipos de Memoria</h2>
+        <ul>
+          <li><strong>RAM:</strong> Memoria volátil para almacenar datos temporales durante la ejecución. Permite lectura y escritura rápida.</li>
+          <li><strong>ROM:</strong> No volátil, almacena el código que no cambia. Se graba una vez y no se modifica fácilmente.</li>
+          <li><strong>EPROM:</strong> Se puede programar eléctricamente y borrar con luz UV.</li>
+          <li><strong>EEPROM:</strong> Se puede borrar y escribir eléctricamente a nivel de byte. Ideal para configuraciones.</li>
+          <li><strong>Flash:</strong> Similar a EEPROM pero más rápida. Muy usada para almacenamiento de código y datos persistentes.</li>
+        </ul>
+
+        <h2>Mapa de Memoria y Direccionamiento</h2>
+        <p>Un microcontrolador con 16 bits de dirección puede acceder a 64 KB de memoria (65,536 ubicaciones).</p>
+        <ul>
+          <li><strong>ROM:</strong> 0x0000 - 0x7FFF (32 KB)</li>
+          <li><strong>RAM:</strong> 0x8000 - 0xBFFF (16 KB)</li>
+          <li><strong>Periféricos:</strong> 0xC000 - 0xFFFF (16 KB)</li>
+        </ul>
+        <p>Ejemplo: La dirección 0xA10F está dentro del rango de RAM. Ideal para almacenar datos temporales.</p>
+
+        <h2>Uso de la EEPROM</h2>
+        <p>Permite almacenar hasta 100,000 a 1,000,000 escrituras por celda. Las lecturas son prácticamente ilimitadas.</p>
+        <p>Se puede usar para guardar configuraciones que persisten tras un reinicio.</p>
+        <ul>
+          <li>Guardar datos en EEPROM tras cambios.</li>
+          <li>Leer datos al iniciar el sistema.</li>
+          <li>Usar <em>checksum</em> o backups para asegurar integridad.</li>
+        </ul>
+
+        <h2>Gestión de Memoria</h2>
+        <p>Si un microcontrolador tiene 512 bytes de RAM, 4 KB de ROM y 8 KB de Flash, la asignación puede ser:</p>
+        <ul>
+          <li><strong>ROM:</strong> Código de arranque, rutinas fijas.</li>
+          <li><strong>RAM:</strong> Variables temporales, pila.</li>
+          <li><strong>Flash:</strong> Código del programa y configuraciones persistentes.</li>
+        </ul>
+        <p>Evitar usar RAM o ROM para guardar configuraciones. Para eso, es mejor usar EEPROM o Flash.</p>
+
+        <h2>Desbordamiento de Memoria</h2>
+        <p>Si se intenta almacenar más de lo permitido en RAM, ocurre un desbordamiento:</p>
+        <ul>
+          <li>Fallo o reinicio del sistema.</li>
+          <li>Corrupción de datos.</li>
+          <li>Errores difíciles de depurar.</li>
+        </ul>
+        <p>Para prevenir:</p>
+        <ul>
+          <li>Reducir tamaño de estructuras.</li>
+          <li>Comprimir datos.</li>
+          <li>Monitorear uso de memoria con herramientas.</li>
+        </ul>
+
+        <h2>Memoria Externa</h2>
+        <p>Conectando una memoria externa de 8 KB mediante bus de 8 bits, se puede acceder de forma:</p>
+        <ul>
+          <li><strong>Memoria mapeada:</strong> Usar punteros para acceso directo.</li>
+          <li><strong>Por puertos:</strong> Instrucciones específicas para leer y escribir.</li>
+        </ul>
+        <p>Buenas prácticas:</p>
+        <ul>
+          <li>Usar punteros y palabra clave <code>volatile</code>.</li>
+          <li>Dividir acceso en bloques pequeños.</li>
+          <li>Crear funciones o macros para facilitar acceso seguro.</li>
+        </ul>
+
+
+
+      </section>
+    </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>💧 No desperdicies el agua. El agua es vida. 🌱</p>
+  </footer>
+
+</body>
+</html>

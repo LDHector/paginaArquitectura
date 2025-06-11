@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicxus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="body">
+  <!-- Header -->
+  <header class="navbar">
+    <h1 class="header-title">Arquitectura de los Microcontroladores PIC</h1>
+  </header>
+
+  <!-- Icono Home -->
+  <a href="inicio.html" class="home-icon"><i class="fas fa-home"></i></a>
+
+  <!-- Dropdown for unit selection -->
+  <div class="dropdown mb-6">
+    <button class="dropbtn">Microcontroladores ↓</button>
+    <div class="dropdown-content">
+      <a href="index.html">Microprocesadores</a>
+      <a href="ensamblador.html">ENSAMBLADOR</a>
+      <a href="procesador.html">TIPOS DE PROCESADORES</a>
+      <a href="microcontroladores.html">Microcontroladores</a>
+      <a href="pic.html">PIC</a>
+      <a href="fundamentos_ensamblador.html">Fundamentos Ensamblador</a>
+      <a href="puerto_ES.html">Puertos de Entrada/Salida Paralela</a>
+    <a href="modulos_cyc.html">Modulos Comparacion y Captura</a>
+      <a href="puerto_ES_serie.html">Puertos de Entrada/Salida Serie</a>
+                <a href="thinkercad.html">Ejercicios en ThinkerCad</a>
+
+    </div>
+  </div>
+
+  <!-- Layout general -->
+  <div class="main-layout">
+    <!-- Contenido principal -->
+    <main class="content-box">
+      <section class="content">
+
+        <h2>Arquitectura de los PIC</h2>
+        <ul>
+          <li>Gamas baja, media y alta</li>
+          <li>Memoria de programa</li>
+          <li>Modos de direccionamiento</li>
+          <li>Memoria de datos</li>
+          <li>Mapa de memoria: SFR y GPR – Bancos de memoria</li>
+          <li>Memoria EEPROM</li>
+        </ul>
+    
+        <img src="../images/pic.png" alt=""  style="width: 750px; height: 460px;">
+
+
+        <h2>Componentes del Microcontrolador PIC</h2>
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Componente</th>
+              <th>Función Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Unidad Central de Procesamiento (CPU)</td><td>Ejecuta instrucciones, procesa datos y coordina el funcionamiento interno del microcontrolador.</td></tr>
+            <tr><td>Memoria de Programa</td><td>Almacena el código o programa que controla el comportamiento del microcontrolador.</td></tr>
+            <tr><td>Memoria de Datos</td><td>Guarda temporalmente variables y datos durante la ejecución del programa.</td></tr>
+            <tr><td>Registros de Propósito General</td><td>Almacenan datos temporales y permiten manipulación directa dentro del microcontrolador.</td></tr>
+            <tr><td>Puerto de Entrada/Salida (GPIO)</td><td>Permite la interacción con dispositivos externos mediante señales digitales de entrada o salida.</td></tr>
+            <tr><td>Timer/Contador</td><td>Mide tiempos o cuenta eventos para controlar procesos temporales o sincronizados.</td></tr>
+          </tbody>
+        </table>
+
+        <img src="../images/pic16f84.png" alt=""  style="width: 609px; height: 460px;">
+       <img src="../images/pic16f84_mapa.png" alt=""  style="width: 700px; height: 500px;">
+
+
+        <h2>Instrucciones Típicas del PIC16F84</h2>
+        <ul>
+          <li><strong>BCF:</strong> Borra un bit específico en un registro (ej: BCF 06h,5).</li>
+          <li><strong>BSF:</strong> Establece un bit específico en 1 (ej: BSF 00h,3).</li>
+          <li><strong>MOVLW:</strong> Carga un literal en el registro W (ej: MOVLW 0x0F).</li>
+        </ul>
+
+        <h2>Modos de Direccionamiento</h2>
+        <ul>
+          <li><strong>Directo:</strong> La instrucción especifica la dirección exacta (ej: movf 0x20, W).</li>
+          <li><strong>Indirecto:</strong> Usa el registro FSR como puntero y accede con INDF.</li>
+        </ul>
+
+        <h2>Interrupciones en PIC</h2>
+        <p>Una interrupción es una señal que pausa el flujo normal para atender un evento. Ejemplo: interrupción externa en RB0 o desbordamiento de TMR0.</p>
+        <ul>
+          <li>Evita uso constante de "polling".</li>
+          <li>Permite respuesta inmediata.</li>
+          <li>Facilita multitarea.</li>
+        </ul>
+
+        <h2>SFR y GPR</h2>
+        <p>En el PIC16F84A:</p>
+        <ul>
+          <li><strong>Banco 0:</strong> SFR (0x00–0x0B), GPR (0x0C–0x4F).</li>
+          <li><strong>Banco 1:</strong> SFR (0x80–0x8B), GPR (0x8C–0xCF).</li>
+        </ul>
+        <p><strong>Dirección 0x05:</strong> Es el registro PORTA, usado para E/S digital.</p>
+
+        <h2>Manipulación de Bancos y Registros</h2>
+        <pre>
+; Simulación de escritura en registros de bancos diferentes
+mov al, 0AAh   ; Cargar valor en AL
+mov PORTA, al ; Escribir en Banco 0
+mov al, 055h
+mov PORTB, al ; Escribir en Banco 1
+        </pre>
+
+        <h2>Mapa de Memoria Incompleto</h2>
+        <p><strong>Dirección 0x05:</strong> Corresponde a PCLATH. Es clave para saltos de programa y llamadas a funciones.</p>
+        <p>Escribir 0xF0 modifica la parte alta de la dirección de salto.</p>
+
+        <h2>Mapa de Memoria Personalizado</h2>
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Dirección</th>
+              <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Función</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0x00</td><td>CTRL</td><td>SFR</td><td>Registro de control general del sistema</td></tr>
+            <tr><td>0x01</td><td>TMR1</td><td>SFR</td><td>Temporizador de conteo</td></tr>
+            <tr><td>0x02</td><td>PORTX</td><td>SFR</td><td>Puerto de entrada/salida digital</td></tr>
+            <tr><td>0x03</td><td>STATUS</td><td>SFR</td><td>Bandera de estado (Z, C, DC, etc.)</td></tr>
+            <tr><td>0x04</td><td>INTC</td><td>SFR</td><td>Control de interrupciones</td></tr>
+            <tr><td>0x05</td><td>PWM1</td><td>SFR</td><td>Control de módulo PWM</td></tr>
+            <tr><td>0x06</td><td>ADC0</td><td>SFR</td><td>Resultado de la conversión analógica a digital</td></tr>
+            <tr><td>0x07</td><td>CONFIG</td><td>SFR</td><td>Registro de configuración del sistema</td></tr>
+            <tr><td>0x08–0x0F</td><td>—</td><td>GPR</td><td>Registros de uso general</td></tr>
+            <tr><td>0x80–0x87</td><td>Reflejo Banco 0</td><td>SFR</td><td>Reflejo de los registros del Banco 0</td></tr>
+            <tr><td>0x88–0x8F</td><td>—</td><td>GPR</td><td>Registros de uso general</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Programadores del Microcontrolador</h2>
+        <h3>Repertorio de Instrucciones</h3>
+        <p>Conjunto de órdenes básicas que un microcontrolador puede ejecutar directamente en lenguaje ensamblador. Controlan el hardware internamente.</p>
+
+        <h3>Instrucciones de Transferencia de Datos</h3>
+        <ul>
+          <li><strong>MOV:</strong> Mover datos entre registros o memoria.</li>
+          <li><strong>LOAD (LD):</strong> Cargar desde memoria a registro.</li>
+          <li><strong>STORE (ST):</strong> Guardar de registro a memoria.</li>
+        </ul>
+        <p><strong>Funcionalidad:</strong> Permite mover datos entre registros, memoria y puertos.</p>
+
+        <h3>Instrucciones Aritméticas y Lógicas</h3>
+        <ul>
+          <li><strong>ADD, SUB, INC, DEC</strong></li>
+          <li><strong>AND, OR, XOR, NOT, COM</strong></li>
+        </ul>
+        <p><strong>Funcionalidad:</strong> Realizan cálculos y decisiones lógicas.</p>
+
+        <h3>Control de Flujo del Programa</h3>
+        <p>Controla el orden de ejecución:</p>
+        <ul>
+          <li>Saltos</li>
+          <li>Llamadas a subrutinas</li>
+          <li>Retornos</li>
+        </ul>
+
+        <h3>Salto Incondicional</h3>
+        <p><strong>JMP:</strong> Salta siempre a una dirección específica.</p>
+
+        <h3>Salto Condicionado</h3>
+        <p>Depende de una condición como resultado cero o bandera activada.</p>
+        <ul>
+          <li>JE, JNE, JC, etc.</li>
+        </ul>
+
+        <h3>Instrucciones de Bits</h3>
+        <ul>
+          <li><strong>SETB:</strong> Establece un bit a 1</li>
+          <li><strong>CLR:</strong> Limpia un bit</li>
+          <li><strong>CPL:</strong> Invierte un bit</li>
+          <li><strong>JB / JNB:</strong> Saltos según el estado del bit</li>
+        </ul>
+        <p><strong>Funcionalidad:</strong> Control preciso de hardware a nivel de bit.</p>
+
+
+
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>💧 No desperdicies el agua. El agua es vida. 🌱</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #e6f5e9); /* celeste + verde claro */
+    color: #2e4d2e;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #81d4fa, #a5d6a7); /* celeste a verde claro */;
+    color: white;
+    padding: 1rem 2rem;
+  }
+  
+  /* Título con animación */
+  .header-title {
+    animation: fadeInGrow 3s ease-in-out forwards;
+    font-size: 2rem;
+    color: #e8f5e9;
+    font-weight: bold;
+  }
+  
+  @keyframes fadeInGrow {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* DROPDOWN MENU */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    background-color: #29b6f6; /* celeste */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropbtn:hover {
+    background-color: #0288d1;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #2e4d2e;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #b2ebf2;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* MAIN LAYOUT */
+  .main-layout {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .content-box {
+    flex: 2;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .sidebar {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+  }
+  
+  /* TEXTO DESTACADO "Cuida el medio ambiente" */
+  .medioambiente-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a237e;
+    background-color: #b2dfdb;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 100, 0, 0.2);
+    text-align: center;
+    animation: ambientalPulse 4s infinite ease-in-out;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .medioambiente-text:hover {
+    transform: scale(1.03);
+  }
+  
+  
+  @keyframes ambientalPulse {
+    0%, 100% {
+      background-color: #b2dfdb;
+    }
+    50% {
+      background-color: #80cbc4;
+    }
+  }
+  
+  /* CARD ANIMADA */
+  .card {
+    margin-top: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    display: block;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  /* FOOTER */
+  footer {
+    background: linear-gradient(to right, #81d4fa, #a5d6a7); /* celeste a verde claro */
+    padding: 1.2rem;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 -3px 6px rgba(0,0,0,0.1);
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  footer img {
+    width: 40px;
+    height: auto;
+  }
+  
+  .animated-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1b5e20;
+    animation: pulseText 3s infinite ease-in-out;
+  }
+  
+  @keyframes pulseText {
+    0%, 100% {
+      transform: scale(1);
+      color: #1b5e20;
+    }
+    50% {
+      transform: scale(1.05);
+      color: #2e7d32;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .navbar {
+    background: linear-gradient(135deg, #a7ffeb, #b2dfdb, #c8e6c9); /* celeste-verde ambiental */
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 12px rgba(0, 100, 0, 0.2);
+    animation: ambientalPulse 6s infinite ease-in-out;
+  }
+  
+  .header-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1b5e20; /* Verde más oscuro para contraste */
+    animation: fadeInUp 2s ease-in-out;
+  }
+    
+/* Estilo solo para la caja que contiene todo el contenido */
+.content-box {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #c8e6c9); /* Celeste-verde */
+    color: #1b5e20; /* Verde oscuro */
+    text-align: center;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 100, 0, 0.2);
+  }
+  
+  .content-box h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 100, 0, 0.2);
+  }
+  
+  .content-box p {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+  
+  .content-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  .content-box li {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+    color: #1b5e20;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .content-box li:hover {
+    color: #00796b; /* Efecto hover, cambia a un verde más vibrante */
+    transform: scale(1.05);
+  }
+  
+  /* Animación de entrada para el contenido */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Estilo para la animación */
+  .content-box {
+    animation: fadeInUp 1.5s ease-out; /* Animación */
+  }
+
+@keyframes fall {
+    0% {
+      transform: translateY(-50px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(150px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  .header-title {
+    position: relative;
+    color: #1b5e20; 
+    transition: color 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .header-title:hover {
+    color: #00cfff; /* celeste */
+  }
+  
+  .header-title:hover::before,
+  .header-title:hover::after {
+    content: "🍃🍃🍃🍃🍃🍃🍃🍃🍃";
+    position: absolute;
+    animation: fall 2s linear forwards;
+    font-size: 20px;
+    left: 0;
+    top: 0;
+    opacity: 1;
+  }
+  
+  .header-title:hover::after {
+    left: 50%;
+    animation-delay: 0.3s;
+  }
+  
